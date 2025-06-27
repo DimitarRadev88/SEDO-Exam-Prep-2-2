@@ -2,25 +2,25 @@ pipeline {
 
     stages {
         stage("Checkout repo") {
-            step {
+            steps {
                 checkout scm
             }
         }
 
         stage("Restore Dependencies") {
-            step {
+            steps {
                 bat 'dotnet restore'
             }
         }
 
         stage("Build Project") {
-            step {
+            steps {
                 bat 'dotnet build --no-restore'
             }
         }
 
         stage("Test Project") {
-            step {
+            steps {
                 bat 'dotnet test'
             }
         }
